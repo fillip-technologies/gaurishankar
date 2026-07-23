@@ -6,7 +6,7 @@ export const HEADER_COLORS = masterColors;
 
 export const HEADER_BRAND = {
   nameHindi: "श्री गौरीशंकर बैकुंठनाथ धाम",
-  subtitleEnglish: "Shri GauriShankar Baikunthnath Dham Temple",
+  subtitleEnglish: "Shri GauriShankar Baikunthnath Dham",
   logoSrc: "/images/logo/temple-logo.png",
 } as const;
 
