@@ -28,9 +28,7 @@ export const navItems: HeaderLink[] = [
   { label: "Contact", href: "/contact" },
 ];
 
-export const mobileNavItems: HeaderLink[] = navItems.filter(
-  (item) => item.label !== "Aarti & Puja",
-);
+export const mobileNavItems: HeaderLink[] = navItems;
 
 export const serviceItems: ServiceItem[] = [
   {
