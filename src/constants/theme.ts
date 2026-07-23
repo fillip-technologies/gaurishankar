@@ -1,0 +1,43 @@
+import type { CSSProperties } from "react";
+
+export const masterColors = {
+  templeMaroon: "#8B1E1E",
+  warmSaffron: "#C56A1A",
+  accentGold: "#D4AF37",
+  warmIvory: "#FCF8F3",
+  softCream: "#F6F1E8",
+  border: "#E8DDCC",
+  primaryText: "#2C241B",
+  secondaryText: "#6B5B4B",
+  bilvaGreen: "#556B2F",
+  hoverGold: "#C79B2C",
+  alertIcon: "#FFD166",
+  templeName: "#4A2C1D",
+  englishSubtitle: "#8C7A6B",
+  mantraBorder: "#D9C8AE",
+  mantraText: "#5B4636",
+  omIcon: "#A45A1F",
+  donateHover: "#A94F10",
+  white: "#FFFFFF",
+} as const;
+
+export const themeCssVariables = {
+  "--color-temple-maroon": masterColors.templeMaroon,
+  "--color-warm-saffron": masterColors.warmSaffron,
+  "--color-accent-gold": masterColors.accentGold,
+  "--color-warm-ivory": masterColors.warmIvory,
+  "--color-soft-cream": masterColors.softCream,
+  "--color-border": masterColors.border,
+  "--color-primary-text": masterColors.primaryText,
+  "--color-secondary-text": masterColors.secondaryText,
+  "--color-bilva-green": masterColors.bilvaGreen,
+  "--color-hover-gold": masterColors.hoverGold,
+  "--color-alert-icon": masterColors.alertIcon,
+  "--color-temple-name": masterColors.templeName,
+  "--color-english-subtitle": masterColors.englishSubtitle,
+  "--color-mantra-border": masterColors.mantraBorder,
+  "--color-mantra-text": masterColors.mantraText,
+  "--color-om-icon": masterColors.omIcon,
+  "--color-donate-hover": masterColors.donateHover,
+  "--color-white": masterColors.white,
+} as CSSProperties;
