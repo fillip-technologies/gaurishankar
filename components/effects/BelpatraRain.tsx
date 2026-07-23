@@ -2,24 +2,28 @@
 
 import { useEffect, useRef, useState } from "react";
 
-const BELPATRA_IMAGE_SRC = "/images/belaptra.png";
-const GENERATION_DURATION_MS = 10_000;
-const MAX_DRAIN_DURATION_MS = 9_000;
+const BELPATRA_ASSET_PATH = "/images/belaptra.png";
+const SPAWN_WINDOW_MS = 10_000;
+const DPR_LIMIT = 2;
 
-type BelpatraLeaf = {
+type Leaf = {
   x: number;
   y: number;
-  size: number;
+  height: number;
   speed: number;
   rotation: number;
   rotationSpeed: number;
   swayAmount: number;
   swaySpeed: number;
-  swayOffset: number;
+  swayPhase: number;
   opacity: number;
 };
 
-const getLeafCount = (width: number) => {
+function randomBetween(min: number, max: number) {
+  return min + Math.random() * (max - min);
+}
+
+function getActiveLeafTarget(width: number) {
   if (width < 640) {
     return 18;
   }
@@ -28,157 +32,154 @@ const getLeafCount = (width: number) => {
     return 28;
   }
 
-  return 48;
-};
+  return 46;
+}
 
-const createLeaf = (width: number, height: number, startAboveViewport = true): BelpatraLeaf => ({
-  x: Math.random() * width,
-  y: startAboveViewport ? -80 - Math.random() * height * 0.35 : Math.random() * height,
-  size: 28 + Math.random() * 34,
-  speed: 0.55 + Math.random() * 1.1,
-  rotation: Math.random() * 360,
-  rotationSpeed: (Math.random() - 0.5) * 1.8,
-  swayAmount: 18 + Math.random() * 42,
-  swaySpeed: 0.012 + Math.random() * 0.018,
-  swayOffset: Math.random() * Math.PI * 2,
-  opacity: 0.68 + Math.random() * 0.24,
-});
+function createLeaf(width: number): Leaf {
+  return {
+    x: randomBetween(-40, width + 40),
+    y: randomBetween(-120, -28),
+    height: randomBetween(18, 38),
+    speed: randomBetween(70, 128),
+    rotation: randomBetween(-Math.PI, Math.PI),
+    rotationSpeed: randomBetween(-1.35, 1.35),
+    swayAmount: randomBetween(18, 74),
+    swaySpeed: randomBetween(0.9, 1.9),
+    swayPhase: randomBetween(0, Math.PI * 2),
+    opacity: randomBetween(0.72, 0.95),
+  };
+}
 
 export function BelpatraRain() {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const leavesRef = useRef<BelpatraLeaf[]>([]);
-  const animationFrameRef = useRef<number | null>(null);
-  const startTimeRef = useRef(0);
-  const lastSpawnTimeRef = useRef(0);
-  const viewportRef = useRef({ width: 0, height: 0, dpr: 1 });
+  const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
     const canvas = canvasRef.current;
 
-    if (!canvas) {
-      return;
+    if (!canvas || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      const hideFrame = window.requestAnimationFrame(() => setIsVisible(false));
+      return () => window.cancelAnimationFrame(hideFrame);
     }
 
     const context = canvas.getContext("2d", { alpha: true });
 
     if (!context) {
-      return;
+      const hideFrame = window.requestAnimationFrame(() => setIsVisible(false));
+      return () => window.cancelAnimationFrame(hideFrame);
     }
 
+    let isMounted = true;
+    let width = window.innerWidth;
+    let height = window.innerHeight;
+    let activeLeafTarget = getActiveLeafTarget(width);
+    let animationFrame = 0;
+    let previousTime = performance.now();
+    const startTime = previousTime;
+    let nextSpawnAt = 0;
+    const leaves: Leaf[] = [];
     const belpatraImage = new Image();
 
     const resizeCanvas = () => {
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
-      const width = window.innerWidth;
-      const height = window.innerHeight;
+      width = window.innerWidth;
+      height = window.innerHeight;
+      activeLeafTarget = getActiveLeafTarget(width);
 
-      viewportRef.current = { width, height, dpr };
-      canvas.width = Math.floor(width * dpr);
-      canvas.height = Math.floor(height * dpr);
+      const dpr = Math.min(window.devicePixelRatio || 1, DPR_LIMIT);
+      canvas.width = Math.ceil(width * dpr);
+      canvas.height = Math.ceil(height * dpr);
       canvas.style.width = `${width}px`;
       canvas.style.height = `${height}px`;
       context.setTransform(dpr, 0, 0, dpr, 0, 0);
     };
 
-    const seedInitialLeaves = () => {
-      const { width, height } = viewportRef.current;
-      const leafCount = getLeafCount(width);
-
-      leavesRef.current = Array.from({ length: Math.floor(leafCount * 0.5) }, () =>
-        createLeaf(width, height, false),
-      );
+    const spawnLeaf = () => {
+      if (leaves.length < activeLeafTarget) {
+        leaves.push(createLeaf(width));
+      }
     };
 
-    const drawLeaf = (leaf: BelpatraLeaf, elapsed: number) => {
-      const sway = Math.sin(elapsed * leaf.swaySpeed + leaf.swayOffset) * leaf.swayAmount;
-      const drawSize = leaf.size;
-      const drawHeight = drawSize * 0.68;
+    const drawLeaf = (leaf: Leaf, elapsedSeconds: number) => {
+      const sway =
+        Math.sin(elapsedSeconds * leaf.swaySpeed + leaf.swayPhase) * leaf.swayAmount;
+      const drawX = leaf.x + sway;
+      const imageRatio = belpatraImage.naturalWidth / belpatraImage.naturalHeight || 1;
+      const leafWidth = leaf.height * imageRatio;
 
       context.save();
       context.globalAlpha = leaf.opacity;
-      context.translate(leaf.x + sway, leaf.y);
-      context.rotate((leaf.rotation * Math.PI) / 180);
+      context.translate(drawX, leaf.y);
+      context.rotate(leaf.rotation);
       context.drawImage(
         belpatraImage,
-        -drawSize / 2,
-        -drawHeight / 2,
-        drawSize,
-        drawHeight,
+        -leafWidth / 2,
+        -leaf.height / 2,
+        leafWidth,
+        leaf.height,
       );
       context.restore();
     };
 
-    const animate = (timestamp: number) => {
-      if (!startTimeRef.current) {
-        startTimeRef.current = timestamp;
-        lastSpawnTimeRef.current = timestamp;
-      }
-
-      const elapsed = timestamp - startTimeRef.current;
-      const { width, height } = viewportRef.current;
-      const targetLeafCount = getLeafCount(width);
-      const isGenerating = elapsed <= GENERATION_DURATION_MS;
+    const render = (time: number) => {
+      const deltaSeconds = Math.min((time - previousTime) / 1000, 0.04);
+      const elapsedMs = time - startTime;
+      const elapsedSeconds = elapsedMs / 1000;
+      previousTime = time;
 
       context.clearRect(0, 0, width, height);
 
-      if (isGenerating && timestamp - lastSpawnTimeRef.current > 180) {
-        const leavesToAdd = Math.max(1, Math.ceil(targetLeafCount / 32));
-
-        for (let index = 0; index < leavesToAdd; index += 1) {
-          if (leavesRef.current.length < targetLeafCount) {
-            leavesRef.current.push(createLeaf(width, height));
-          }
-        }
-
-        lastSpawnTimeRef.current = timestamp;
+      // Spawn for exactly 10 seconds; after that, existing leaves drain naturally.
+      while (elapsedMs <= SPAWN_WINDOW_MS && elapsedMs >= nextSpawnAt) {
+        spawnLeaf();
+        nextSpawnAt += randomBetween(95, 220);
       }
 
-      leavesRef.current = leavesRef.current.filter((leaf) => {
-        leaf.y += leaf.speed;
-        leaf.rotation += leaf.rotationSpeed;
-        drawLeaf(leaf, elapsed);
+      for (let index = leaves.length - 1; index >= 0; index -= 1) {
+        const leaf = leaves[index];
+        leaf.y += leaf.speed * deltaSeconds;
+        leaf.rotation += leaf.rotationSpeed * deltaSeconds;
+        drawLeaf(leaf, elapsedSeconds);
 
-        return leaf.y < height + leaf.size * 1.5;
-      });
+        if (leaf.y - leaf.height > height + 80) {
+          leaves.splice(index, 1);
+        }
+      }
 
-      if (
-        isGenerating ||
-        (leavesRef.current.length > 0 && elapsed < GENERATION_DURATION_MS + MAX_DRAIN_DURATION_MS)
-      ) {
-        animationFrameRef.current = window.requestAnimationFrame(animate);
+      if (elapsedMs > SPAWN_WINDOW_MS && leaves.length === 0) {
+        setIsVisible(false);
         return;
       }
 
-      setIsVisible(false);
+      animationFrame = window.requestAnimationFrame(render);
     };
 
     resizeCanvas();
-    seedInitialLeaves();
-    window.addEventListener("resize", resizeCanvas);
+    window.addEventListener("resize", resizeCanvas, { passive: true });
 
-    const startAnimation = () => {
-      if (animationFrameRef.current) {
-        return;
-      }
-
-      animationFrameRef.current = window.requestAnimationFrame(animate);
-    };
-
-    belpatraImage.onload = startAnimation;
-    belpatraImage.onerror = () => setIsVisible(false);
-    belpatraImage.src = BELPATRA_IMAGE_SRC;
-
-    if (belpatraImage.complete) {
-      startAnimation();
+    // Small first batch makes the animation visible immediately without a burst.
+    for (let index = 0; index < Math.min(6, activeLeafTarget); index += 1) {
+      spawnLeaf();
     }
 
-    return () => {
-      window.removeEventListener("resize", resizeCanvas);
-
-      if (animationFrameRef.current) {
-        window.cancelAnimationFrame(animationFrameRef.current);
+    const startAnimation = () => {
+      if (isMounted) {
+        animationFrame = window.requestAnimationFrame(render);
       }
+    };
+
+    const hideOnAssetError = () => {
+      if (isMounted) {
+        animationFrame = window.requestAnimationFrame(() => setIsVisible(false));
+      }
+    };
+
+    belpatraImage.src = BELPATRA_ASSET_PATH;
+    belpatraImage.decode().then(startAnimation).catch(hideOnAssetError);
+
+    return () => {
+      isMounted = false;
+      window.cancelAnimationFrame(animationFrame);
+      window.removeEventListener("resize", resizeCanvas);
     };
   }, []);
 
@@ -187,10 +188,12 @@ export function BelpatraRain() {
   }
 
   return (
-    <canvas
-      ref={canvasRef}
-      className="pointer-events-none fixed inset-0 z-[9999] overflow-hidden bg-transparent"
+    <div
+      className="pointer-events-none fixed inset-0 z-[1000] overflow-hidden bg-transparent [contain:strict] motion-reduce:hidden"
       aria-hidden="true"
-    />
+    >
+      <canvas ref={canvasRef} className="block h-full w-full" />
+    </div>
   );
 }
+
