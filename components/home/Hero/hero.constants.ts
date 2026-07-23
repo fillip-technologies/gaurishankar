@@ -6,7 +6,8 @@ export const HERO_CONTENT = {
   headingLineTwo: "बैकुंठनाथ धाम",
   subtitle:
     "Experience the timeless divinity and spiritual heritage of Shri GauriShankar Baikunthnath Dham.",
-  ctaLabel: "Explore Temple",
-  ctaHref: "/about",
+  primaryCtaLabel: "Explore Temple",
+  primaryCtaHref: "/about",
+  secondaryCtaLabel: "Temple History",
+  secondaryCtaHref: "/about#history",
 } as const;
-

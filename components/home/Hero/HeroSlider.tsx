@@ -103,9 +103,10 @@ export function HeroSlider() {
               <motion.div
                 className="absolute inset-0"
                 initial={{ scale: 1 }}
-                animate={{ scale: 1.08 }}
+                animate={{ scale: 1.065 }}
+                whileHover={{ scale: 1.085 }}
                 transition={{
-                  duration: HERO_AUTOPLAY_INTERVAL_MS / 1000 + 1.2,
+                  duration: HERO_AUTOPLAY_INTERVAL_MS / 1000 + 1.8,
                   ease: "linear",
                 }}
               >

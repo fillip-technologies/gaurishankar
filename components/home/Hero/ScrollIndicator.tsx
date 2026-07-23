@@ -13,9 +13,9 @@ export function ScrollIndicator() {
       aria-hidden="true"
     >
       <motion.div
-        animate={{ y: [0, 8, 0] }}
-        transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-        className="grid size-10 place-items-center rounded-full border border-[color-mix(in_srgb,var(--color-white)_38%,transparent)] bg-[color-mix(in_srgb,var(--color-warm-ivory)_12%,transparent)] backdrop-blur-md"
+        animate={{ y: [0, 7, 0] }}
+        transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
+        className="grid size-10 place-items-center rounded-full border border-[color-mix(in_srgb,var(--color-white)_38%,transparent)] bg-[color-mix(in_srgb,var(--color-warm-ivory)_14%,transparent)] backdrop-blur-md"
       >
         <Mouse size={18} />
       </motion.div>
@@ -23,4 +23,3 @@ export function ScrollIndicator() {
     </motion.div>
   );
 }
-

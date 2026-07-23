@@ -1,6 +1,8 @@
 import { themeCssVariables } from "@/src/constants/theme";
 
+import { HeroOverlay } from "./HeroOverlay";
 import { HeroSlider } from "./HeroSlider";
+import { ScrollIndicator } from "./ScrollIndicator";
 
 export function Hero() {
   return (
@@ -10,6 +12,8 @@ export function Hero() {
       aria-label="Shri GauriShankar Baikunthnath Dham Temple hero"
     >
       <HeroSlider />
+      <HeroOverlay />
+      <ScrollIndicator />
     </section>
   );
 }

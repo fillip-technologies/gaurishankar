@@ -1,9 +1,8 @@
-export { CalendarCarousel } from "./CalendarCarousel";
+export { EventsCarousel } from "./EventsCarousel";
 export { EventCard } from "./EventCard";
-export { EventsSection } from "./EventsSection";
-export { StickyCalendar } from "./StickyCalendar";
+export { PanchangCarousel } from "./PanchangCarousel";
+export { StickyPanchang } from "./StickyPanchang";
 export { UpcomingEvents } from "./UpcomingEvents";
 export * from "./upcoming-events.constants";
 export * from "./upcoming-events.data";
 export * from "./upcoming-events.types";
-

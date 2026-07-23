@@ -1,4 +1,5 @@
 import { Footer } from "@/components/layout/Footer";
+import { FloatingQuickActions } from "@/components/layout/FloatingQuickActions";
 import { Header } from "@/components/layout/Header";
 
 export default function WebsiteLayout({
@@ -11,7 +12,7 @@ export default function WebsiteLayout({
       <Header />
       <main>{children}</main>
       <Footer />
+      <FloatingQuickActions />
     </>
   );
 }
-

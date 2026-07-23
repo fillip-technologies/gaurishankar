@@ -1,0 +1,59 @@
+import type { TempleTiming } from "./timings.types";
+
+export const templeTimings: TempleTiming[] = [
+  {
+    id: "kapaat-opening",
+    icon: "🌅",
+    title: "Kapaat Opening",
+    time: "05:00 AM",
+    startMinutes: 300,
+    endMinutes: 359,
+    note: "The sanctum opens for peaceful morning darshan.",
+  },
+  {
+    id: "mangala-aarti",
+    icon: "🔔",
+    title: "Mangala Aarti",
+    time: "06:00 AM",
+    startMinutes: 360,
+    endMinutes: 479,
+    note: "Morning aarti with sacred bells and Shiva mantras.",
+  },
+  {
+    id: "shringar-aarti",
+    icon: "🪔",
+    title: "Shringar Aarti",
+    time: "08:00 AM",
+    startMinutes: 480,
+    endMinutes: 719,
+    note: "Darshan after divine shringar and daily puja.",
+  },
+  {
+    id: "raj-bhog",
+    icon: "🍛",
+    title: "Raj Bhog",
+    time: "12:00 PM",
+    startMinutes: 720,
+    endMinutes: 1139,
+    note: "Midday bhog seva offered with devotion.",
+  },
+  {
+    id: "sandhya-aarti",
+    icon: "🪔",
+    title: "Sandhya Aarti",
+    time: "07:00 PM",
+    startMinutes: 1140,
+    endMinutes: 1259,
+    note: "Evening aarti, deep daan, and devotional chanting.",
+  },
+  {
+    id: "kapaat-closing",
+    icon: "🌙",
+    title: "Kapaat Closing",
+    time: "09:00 PM",
+    startMinutes: 1260,
+    endMinutes: 1439,
+    note: "The temple closes after final darshan and prayers.",
+  },
+];
+

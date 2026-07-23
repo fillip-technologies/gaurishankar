@@ -14,7 +14,7 @@ type EventCardProps = {
 export function EventCard({ event, isActive = false }: EventCardProps) {
   return (
     <motion.article
-      className={`group flex h-[560px] flex-col overflow-hidden rounded-2xl border bg-[var(--color-warm-ivory)] shadow-[0_18px_48px_color-mix(in_srgb,var(--color-temple-maroon)_10%,transparent)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_62px_color-mix(in_srgb,var(--color-temple-maroon)_16%,transparent)] sm:h-[585px] xl:h-[610px] ${
+      className={`group flex h-[520px] flex-col overflow-hidden rounded-2xl border bg-[var(--color-warm-ivory)] shadow-[0_18px_48px_color-mix(in_srgb,var(--color-temple-maroon)_10%,transparent)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_62px_color-mix(in_srgb,var(--color-temple-maroon)_16%,transparent)] sm:h-[540px] xl:h-[560px] ${
         isActive
           ? "border-[var(--color-accent-gold)]"
           : "border-[var(--color-border)]"
@@ -24,7 +24,7 @@ export function EventCard({ event, isActive = false }: EventCardProps) {
       viewport={{ once: true, amount: 0.25 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
     >
-      <div className="relative h-64 shrink-0 overflow-hidden sm:h-72 xl:h-80">
+      <div className="relative h-60 shrink-0 overflow-hidden sm:h-64 xl:h-72">
         <Image
           src={event.imageSrc}
           alt={event.title}
