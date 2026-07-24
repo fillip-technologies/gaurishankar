@@ -26,7 +26,7 @@ export const templeTimings: TempleTiming[] = [
     time: "08:00 AM",
     startMinutes: 480,
     endMinutes: 719,
-    note: "Darshan after divine shringar and daily puja.",
+    note: "Darshan after shringar and daily puja.",
   },
   {
     id: "raj-bhog",
@@ -56,4 +56,3 @@ export const templeTimings: TempleTiming[] = [
     note: "The temple closes after final darshan and prayers.",
   },
 ];
-

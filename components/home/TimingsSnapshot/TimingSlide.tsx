@@ -45,7 +45,7 @@ export function TimingSlide({
           {activeIndex === currentTimingIndex ? (
             <p className="mt-5 inline-flex items-center gap-2 border-y border-[color-mix(in_srgb,var(--color-bilva-green)_35%,transparent)] px-3 py-2 text-xs font-bold uppercase tracking-[0.18em] text-[var(--color-bilva-green)]">
               <span className="size-2 rounded-full bg-[var(--color-bilva-green)]" />
-              Live Now
+              Current Timing
             </p>
           ) : null}
 

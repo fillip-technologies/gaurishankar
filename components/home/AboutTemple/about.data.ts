@@ -14,7 +14,7 @@ import type { AboutInfoItem, HeritageHighlight } from "./about.types";
 export const floatingInfoItems: AboutInfoItem[] = [
   {
     label: "Established",
-    value: "A living seat of devotion",
+    value: "A place of daily devotion",
     icon: Landmark,
   },
   {
@@ -24,20 +24,20 @@ export const floatingInfoItems: AboutInfoItem[] = [
   },
   {
     label: "Spiritual Importance",
-    value: "Dedicated to Shiva, Maa Gauri, and sacred seva",
+    value: "Dedicated to Shiva and Maa Gauri",
     icon: Sparkles,
   },
 ];
 
 export const heritageHighlights: HeritageHighlight[] = [
   {
-    title: "Ancient Heritage",
-    subtitle: "A devotional atmosphere shaped by generations of worship.",
+    title: "Temple Heritage",
+    subtitle: "A devotional atmosphere shaped by faith, worship, and seva.",
     icon: Landmark,
   },
   {
     title: "Akhand Jyoti",
-    subtitle: "A sacred flame symbolizing faith, continuity, and blessings.",
+    subtitle: "A sacred flame honored with faith and devotion.",
     icon: Flame,
   },
   {
@@ -47,7 +47,7 @@ export const heritageHighlights: HeritageHighlight[] = [
   },
   {
     title: "Sacred Bilva Tree",
-    subtitle: "Bilva leaves remain central to Shiva puja and temple tradition.",
+    subtitle: "Bilva leaves hold deep importance in Shiva worship.",
     icon: Leaf,
   },
   {
@@ -57,8 +57,7 @@ export const heritageHighlights: HeritageHighlight[] = [
   },
   {
     title: "Devotee Community",
-    subtitle: "A warm gathering place for families, pilgrims, and seva volunteers.",
+    subtitle: "A gathering place for families, devotees, and seva volunteers.",
     icon: Users,
   },
 ];
-

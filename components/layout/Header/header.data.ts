@@ -10,11 +10,11 @@ import {
 import type { AlertItem, HeaderLink, ServiceItem } from "./header.types";
 
 export const alertItems: AlertItem[] = [
-  { eyebrow: "LIVE UPDATES", label: "Today's Panchang", href: "/panchang" },
+  { eyebrow: "TEMPLE UPDATES", label: "Panchang updates", href: "/panchang" },
   { label: "Temple Open: 5:00 AM - 9:00 PM", href: "/darshan" },
-  { label: "Upcoming Festivals", href: "/festivals" },
-  { label: "Online Puja Booking Open", href: "/services/puja-booking" },
-  { label: "Donate Online", href: "/donate" },
+  { label: "Festival announcements", href: "/festivals" },
+  { label: "Puja and seva information", href: "/services/puja-booking" },
+  { label: "Support temple seva", href: "/donate" },
 ];
 
 export const navItems: HeaderLink[] = [
@@ -40,25 +40,25 @@ export const serviceItems: ServiceItem[] = [
   {
     label: "Puja Booking",
     href: "/services/puja-booking",
-    description: "Reserve sacred pujas and sankalp offerings with care.",
+    description: "Share puja and sankalp requests with the temple team.",
     icon: CalendarCheck,
   },
   {
     label: "Prasad",
     href: "/services/prasad",
-    description: "Request blessed prasad prepared for devotees.",
+    description: "Find prasad information for devotees and families.",
     icon: Gift,
   },
   {
     label: "VIP Pass",
     href: "/services/vip-pass",
-    description: "Plan a smoother darshan during auspicious days.",
+    description: "Check darshan guidance for busy and auspicious days.",
     icon: ShieldCheck,
   },
   {
     label: "Dharamshala",
     href: "/services/dharamshala",
-    description: "Comfortable pilgrim stay near the temple campus.",
+    description: "View pilgrim stay guidance when it is available.",
     icon: Home,
   },
   {
@@ -70,4 +70,4 @@ export const serviceItems: ServiceItem[] = [
 ];
 
 export const mantraText =
-  "ॐ नमः शिवाय ❈ श्री शिव शिवाय नमस्तुभ्यम् ❈ श्री गौरीशंकर बैकुंठनाथ विजयतेताराम् ❈ जय महाकाल ❈ हर हर महादेव ❈ ॐ त्र्यम्बकं यजामहे सुगन्धिं पुष्टिवर्धनम् ❈ उर्वारुकमिव बन्धनान् मृत्योर्मुक्षीय माऽमृतात् ❈ नमामीशमीशान निर्वाणरूपम् ❈ ॐ नमः शिवाय • ॐ नमः शिवाय • ॐ नमः शिवाय ❈ ॐ नमः शिवाय ❈ श्री शिव शिवाय नमस्तुभ्यम् ❈ श्री गौरीशंकर बैकुंठनाथ विजयतेताराम् ❈ जय महाकाल ❈ हर हर महादेव ❈ ॐ त्र्यम्बकं यजामहे सुगन्धिं पुष्टिवर्धनम् ❈ उर्वारुकमिव बन्धनान् मृत्योर्मुक्षीय माऽमृतात् ❈ नमामीशमीशान निर्वाणरूपम् ❈ ॐ नमः शिवाय • ॐ नमः शिवाय • ॐ नमः शिवाय";
+  "ॐ नमः शिवाय ❈ श्री शिव शिवाय नमस्तुभ्यम् ❈ हर हर महादेव ❈ ॐ त्र्यम्बकं यजामहे सुगन्धिं पुष्टिवर्धनम् ❈ नमामीशमीशान निर्वाणरूपम् ❈ ॐ नमः शिवाय • ॐ नमः शिवाय • ॐ नमः शिवाय";

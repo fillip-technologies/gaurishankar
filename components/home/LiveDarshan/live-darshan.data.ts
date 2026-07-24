@@ -8,9 +8,9 @@ export const liveTabs: LiveDarshanTab[] = [
     label: "Sanctum",
     title: "Sanctum Darshan",
     imageSrc: "/images/homepage/hero-new-3.png",
-    currentAarti: "Shringar Darshan",
-    status: "Streaming from main sanctum",
-    viewers: "2.4k",
+    currentAarti: "Darshan",
+    status: "Temple darshan view",
+    viewers: "Updates",
   },
   {
     id: "morning-aarti",
@@ -18,8 +18,8 @@ export const liveTabs: LiveDarshanTab[] = [
     title: "Morning Aarti Darshan",
     imageSrc: "/images/homepage/hero-new-1.png",
     currentAarti: "Mangala Aarti",
-    status: "Morning rituals archive",
-    viewers: "1.8k",
+    status: "Morning ritual information",
+    viewers: "Schedule",
   },
   {
     id: "evening-aarti",
@@ -27,8 +27,8 @@ export const liveTabs: LiveDarshanTab[] = [
     title: "Evening Aarti Darshan",
     imageSrc: "/images/homepage/slide-4.jpg",
     currentAarti: "Sandhya Aarti",
-    status: "Live during evening aarti",
-    viewers: "3.1k",
+    status: "Evening ritual information",
+    viewers: "Schedule",
   },
   {
     id: "special-events",
@@ -36,8 +36,8 @@ export const liveTabs: LiveDarshanTab[] = [
     title: "Festival Darshan",
     imageSrc: "/images/homepage/mandir-view.png",
     currentAarti: "Festival Seva",
-    status: "Special broadcast schedule",
-    viewers: "4.6k",
+    status: "Festival announcements",
+    viewers: "Updates",
   },
 ];
 
@@ -45,31 +45,30 @@ export const liveInfoItems: LiveInfoItem[] = [
   {
     title: "Live Schedule",
     value: "Daily Darshan",
-    subtitle: "Sanctum broadcast begins with morning rituals and continues through temple hours.",
+    subtitle: "Darshan guidance follows temple timings and festival announcements.",
     icon: Radio,
   },
   {
     title: "Today's Aarti",
     value: "Mangala and Sandhya",
-    subtitle: "Join the temple aarti moments with mantras, deep daan, and devotional chants.",
+    subtitle: "Aarti information is shared for devotees planning their visit.",
     icon: Flame,
   },
   {
     title: "Temple Timings",
     value: "5:00 AM - 9:00 PM",
-    subtitle: "Live coverage follows the public darshan window and festival announcements.",
+    subtitle: "Darshan timings may vary on festival days and special occasions.",
     icon: Clock,
   },
 ];
 
 export const liveStats: LiveStat[] = [
-  { label: "Online Devotees", value: "2.4k" },
-  { label: "Aarti Reminder", value: "6:30 PM" },
-  { label: "Next Broadcast", value: "Live Now" },
+  { label: "Darshan Info", value: "Daily" },
+  { label: "Aarti Updates", value: "Temple Notice" },
+  { label: "Festival Info", value: "Announced" },
 ];
 
 export const liveMetaIcons = {
   viewers: Users,
   status: BellRing,
 } as const;
-
