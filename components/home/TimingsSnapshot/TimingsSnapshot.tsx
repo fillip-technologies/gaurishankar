@@ -35,7 +35,7 @@ export function TimingsSnapshot() {
           </p>
           <h2
             id="timings-snapshot-title"
-            className="mt-4 font-[var(--font-cormorant),serif] text-4xl font-semibold leading-tight text-[var(--color-temple-name)] sm:text-5xl lg:text-6xl"
+            className="mt-4 font-[var(--font-cormorant),serif] text-3xl font-semibold leading-tight text-[var(--color-temple-name)] sm:text-4xl lg:text-5xl"
           >
             {TIMINGS_CONTENT.title}
           </h2>

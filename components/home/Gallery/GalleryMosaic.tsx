@@ -49,7 +49,7 @@ export function GalleryMosaic({ images }: GalleryMosaicProps) {
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--color-alert-icon)]">
               {item.category}
             </p>
-            <h3 className="mt-2 font-[var(--font-cormorant),serif] text-3xl font-semibold leading-tight">
+            <h3 className="mt-2 font-[var(--font-cormorant),serif] text-2xl font-semibold leading-tight">
               {item.title}
             </h3>
           </figcaption>

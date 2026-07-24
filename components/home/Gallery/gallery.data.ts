@@ -44,5 +44,32 @@ export const galleryImages: GalleryImage[] = [
     image: "/images/homepage/slide-2.jpg",
     alt: "Sacred aarti atmosphere at the temple",
   },
+  {
+    id: "shivling-abhishek",
+    title: "Shivling Abhishek",
+    category: "Shiv Puja",
+    image: "/images/shiv.jpg",
+    alt: "Shivling abhishek with sacred water and flowers",
+  },
+  {
+    id: "festival-darshan",
+    title: "Festival Darshan",
+    category: "Festival",
+    image: "/images/homepage/slide-3.jpg",
+    alt: "Festival darshan and temple decoration",
+  },
+  {
+    id: "evening-prayers",
+    title: "Evening Prayers",
+    category: "Prayer",
+    image: "/images/homepage/slide-4.jpg",
+    alt: "Evening prayer atmosphere at the temple",
+  },
+  {
+    id: "devotional-gathering",
+    title: "Devotional Gathering",
+    category: "Seva",
+    image: "/images/homepage/slide-5.jpg",
+    alt: "Devotional gathering and seva atmosphere",
+  },
 ];
-

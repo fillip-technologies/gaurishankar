@@ -39,7 +39,7 @@ export function LiveDarshan() {
           </p>
           <h2
             id="live-darshan-title"
-            className="mt-4 font-[var(--font-cormorant),serif] text-4xl font-semibold leading-[1.08] text-[var(--color-temple-name)] sm:text-5xl lg:text-6xl"
+            className="mt-4 font-[var(--font-cormorant),serif] text-3xl font-semibold leading-[1.08] text-[var(--color-temple-name)] sm:text-4xl lg:text-5xl"
           >
             <span className="block">{LIVE_DARSHAN_CONTENT.headingPrefix}</span>
             <span>{LIVE_DARSHAN_CONTENT.headingSuffix} </span>

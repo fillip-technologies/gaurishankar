@@ -3,7 +3,7 @@
 import { X } from "lucide-react";
 import Link from "next/link";
 
-import { mobileNavItems, serviceItems } from "./header.data";
+import { mobileNavItems } from "./header.data";
 
 type MobileMenuProps = {
   isOpen: boolean;
@@ -62,23 +62,6 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                 {item.label}
               </Link>
             ))}
-          </div>
-          <div className="mt-6 border-t border-[var(--color-border)] pt-5">
-            <p className="mb-2 px-3 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-bilva-green)]">
-              Services
-            </p>
-            <div className="grid gap-1">
-              {serviceItems.map((item) => (
-                <Link
-                  href={item.href}
-                  key={item.label}
-                  onClick={onClose}
-                  className="rounded-xl px-3 py-2.5 text-sm font-medium text-[var(--color-secondary-text)] transition hover:bg-[var(--color-soft-cream)] hover:text-[var(--color-warm-saffron)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-gold)]"
-                >
-                  {item.label}
-                </Link>
-              ))}
-            </div>
           </div>
         </div>
         <div className="grid gap-3 border-t border-[var(--color-border)] p-5">

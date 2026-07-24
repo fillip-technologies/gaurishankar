@@ -14,7 +14,7 @@ export function TimingSlide({
 }: TimingSlideProps) {
   return (
     <article className="mx-auto min-h-[430px] max-w-4xl py-4 text-center sm:min-h-[460px]">
-      <p className="font-[var(--font-cormorant),serif] text-3xl font-semibold tracking-wide text-[var(--color-temple-maroon)] sm:text-4xl">
+      <p className="font-[var(--font-cormorant),serif] text-2xl font-semibold tracking-wide text-[var(--color-temple-maroon)] sm:text-3xl">
         ॐ Today&apos;s Temple Timings
       </p>
 
@@ -33,10 +33,10 @@ export function TimingSlide({
               {timing.icon}
             </span>
             <div>
-              <h3 className="font-[var(--font-cormorant),serif] text-4xl font-semibold leading-none text-[var(--color-temple-name)] sm:text-5xl">
+              <h3 className="font-[var(--font-cormorant),serif] text-3xl font-semibold leading-none text-[var(--color-temple-name)] sm:text-4xl">
                 {timing.title}
               </h3>
-              <p className="mt-2 font-[var(--font-cormorant),serif] text-4xl font-semibold text-[var(--color-temple-maroon)]">
+              <p className="mt-2 font-[var(--font-cormorant),serif] text-3xl font-semibold text-[var(--color-temple-maroon)]">
                 {timing.time}
               </p>
             </div>
@@ -76,7 +76,7 @@ export function TimingSlide({
                   {scheduleTiming.icon}
                 </span>
                 <span
-                  className={`font-[var(--font-cormorant),serif] text-2xl font-semibold ${
+                  className={`font-[var(--font-cormorant),serif] text-xl font-semibold ${
                     isActive ? "tracking-wide" : ""
                   }`}
                 >

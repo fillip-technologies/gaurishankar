@@ -79,7 +79,7 @@ export function Footer() {
           </div>
 
           <nav aria-label="Footer navigation">
-            <h2 className="font-[var(--font-cormorant),serif] text-2xl font-semibold text-[var(--color-alert-icon)]">
+            <h2 className="font-[var(--font-cormorant),serif] text-xl font-semibold text-[var(--color-alert-icon)]">
               Explore
             </h2>
             <ul className="mt-5 space-y-3">
@@ -97,7 +97,7 @@ export function Footer() {
           </nav>
 
           <nav aria-label="Temple services">
-            <h2 className="font-[var(--font-cormorant),serif] text-2xl font-semibold text-[var(--color-alert-icon)]">
+            <h2 className="font-[var(--font-cormorant),serif] text-xl font-semibold text-[var(--color-alert-icon)]">
               Seva
             </h2>
             <ul className="mt-5 space-y-3">
@@ -115,7 +115,7 @@ export function Footer() {
           </nav>
 
           <div>
-            <h2 className="font-[var(--font-cormorant),serif] text-2xl font-semibold text-[var(--color-alert-icon)]">
+            <h2 className="font-[var(--font-cormorant),serif] text-xl font-semibold text-[var(--color-alert-icon)]">
               Temple Info
             </h2>
             <ul className="mt-5 space-y-4 text-sm text-[color-mix(in_srgb,var(--color-white)_78%,transparent)]">

@@ -20,7 +20,7 @@ export function AboutContent() {
         <span className="h-px w-16 bg-[var(--color-accent-gold)]" aria-hidden="true" />
       </div>
 
-      <h2 className="mt-6 font-[var(--font-cormorant),serif] text-5xl font-semibold leading-[1.05] text-[var(--color-temple-name)] sm:text-6xl lg:text-7xl">
+      <h2 className="mt-6 font-[var(--font-cormorant),serif] text-4xl font-semibold leading-[1.05] text-[var(--color-temple-name)] sm:text-5xl lg:text-6xl">
         <span className="block">{ABOUT_TEMPLE_CONTENT.headingPrefix}</span>
         <span className="text-[var(--color-accent-gold)]">
           {ABOUT_TEMPLE_CONTENT.headingHighlight}
@@ -31,7 +31,7 @@ export function AboutContent() {
         {ABOUT_TEMPLE_CONTENT.description}
       </p>
 
-      <blockquote className="mt-7 border-l-2 border-[var(--color-bilva-green)] pl-5 font-[var(--font-noto-devanagari),var(--font-geist-sans)] text-xl italic leading-9 text-[var(--color-bilva-green)]">
+      <blockquote className="mt-7 border-l-2 border-[var(--color-bilva-green)] pl-5 font-[var(--font-noto-devanagari),var(--font-geist-sans)] text-xl leading-9 text-[var(--color-bilva-green)]">
         “{ABOUT_TEMPLE_CONTENT.quote}”
       </blockquote>
 

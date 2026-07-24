@@ -19,11 +19,12 @@ export const alertItems: AlertItem[] = [
 
 export const navItems: HeaderLink[] = [
   { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
   { label: "Darshan", href: "/darshan" },
   { label: "Aarti & Puja", href: "/aarti-puja" },
-  { label: "Services", href: "/services" },
   { label: "Gallery", href: "/gallery" },
+  { label: "Guest", href: "/guest" },
+  { label: "Priest", href: "/priest" },
+  { label: "Information", href: "/information" },
   { label: "News", href: "/news" },
   { label: "Contact", href: "/contact" },
 ];

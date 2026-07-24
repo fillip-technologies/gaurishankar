@@ -37,7 +37,7 @@ export function EventCard({ event, isActive = false }: EventCardProps) {
         <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-warm-saffron)]">
           {event.date}
         </p>
-        <h3 className="mt-2 font-[var(--font-cormorant),serif] text-2xl font-semibold text-[var(--color-temple-name)]">
+        <h3 className="mt-2 font-[var(--font-cormorant),serif] text-xl font-semibold text-[var(--color-temple-name)]">
           {event.title}
         </h3>
         <p className="mt-3 text-sm leading-6 text-[var(--color-secondary-text)]">

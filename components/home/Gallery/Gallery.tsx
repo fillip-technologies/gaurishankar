@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 import { themeCssVariables } from "@/src/constants/theme";
 
@@ -8,7 +9,13 @@ import { GALLERY_CONTENT } from "./gallery.constants";
 import { galleryImages } from "./gallery.data";
 import { GalleryMosaic } from "./GalleryMosaic";
 
-export function Gallery() {
+type GalleryProps = {
+  showAll?: boolean;
+};
+
+export function Gallery({ showAll = false }: GalleryProps) {
+  const visibleImages = showAll ? galleryImages : galleryImages.slice(0, 8);
+
   return (
     <section
       className="relative overflow-hidden bg-[var(--color-soft-cream)] py-16 sm:py-20 lg:py-24"
@@ -32,7 +39,7 @@ export function Gallery() {
           </p>
           <h2
             id="gallery-title"
-            className="mt-4 font-[var(--font-cormorant),serif] text-4xl font-semibold leading-tight text-[var(--color-temple-name)] sm:text-5xl lg:text-6xl"
+            className="mt-4 font-[var(--font-cormorant),serif] text-3xl font-semibold leading-tight text-[var(--color-temple-name)] sm:text-4xl lg:text-5xl"
           >
             {GALLERY_CONTENT.title}
           </h2>
@@ -41,9 +48,19 @@ export function Gallery() {
           </p>
         </motion.div>
 
-        <GalleryMosaic images={galleryImages} />
+        <GalleryMosaic images={visibleImages} />
+
+        {!showAll ? (
+          <div className="mt-10 flex justify-center">
+            <Link
+              href="/gallery"
+              className="inline-flex h-12 items-center justify-center rounded-full bg-[var(--color-temple-maroon)] px-7 text-sm font-bold uppercase tracking-[0.14em] text-[var(--color-white)] shadow-[0_16px_38px_color-mix(in_srgb,var(--color-temple-maroon)_18%,transparent)] transition hover:bg-[var(--color-donate-hover)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-gold)]"
+            >
+              View More
+            </Link>
+          </div>
+        ) : null}
       </div>
     </section>
   );
 }
-

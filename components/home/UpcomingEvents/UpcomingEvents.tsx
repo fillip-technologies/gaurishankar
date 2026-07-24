@@ -66,7 +66,7 @@ export function UpcomingEvents() {
           >
             <h2
               id="upcoming-events-title"
-              className="font-[var(--font-cormorant),serif] text-4xl font-semibold leading-tight text-[var(--color-temple-name)] sm:text-5xl"
+              className="font-[var(--font-cormorant),serif] text-3xl font-semibold leading-tight text-[var(--color-temple-name)] sm:text-4xl"
             >
               {UPCOMING_EVENTS_CONTENT.title}
             </h2>

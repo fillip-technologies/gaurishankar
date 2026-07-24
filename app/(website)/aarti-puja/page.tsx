@@ -199,9 +199,9 @@ function createPdfPageSvg(lines: string[], logoDataUrl: string, pageNumber: numb
 
   const firstPageHeader = isFirstPage
     ? `<image href="${logoDataUrl}" x="347" y="60" width="100" height="100" preserveAspectRatio="xMidYMid meet"/>
-       <text x="397" y="190" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-size="42" font-weight="700" fill="#4A2C1D">Shiv Aarti</text>`
+       <text x="397" y="190" text-anchor="middle" font-family="Playfair Display, Georgia, serif" font-size="42" font-weight="700" fill="#4A2C1D">Shiv Aarti</text>`
     : `<image href="${logoDataUrl}" x="64" y="52" width="54" height="54" preserveAspectRatio="xMidYMid meet"/>
-       <text x="138" y="86" font-family="Cormorant Garamond, Georgia, serif" font-size="24" font-weight="700" fill="#4A2C1D">Shiv Aarti</text>`;
+       <text x="138" y="86" font-family="Playfair Display, Georgia, serif" font-size="24" font-weight="700" fill="#4A2C1D">Shiv Aarti</text>`;
 
   return `<svg xmlns="http://www.w3.org/2000/svg" width="794" height="1123" viewBox="0 0 794 1123">
     <rect width="794" height="1123" fill="#FCF8F3"/>
@@ -399,7 +399,7 @@ export default function AartiPujaPage() {
                 {/* <p className="font-[var(--font-noto-devanagari),sans-serif] text-4xl text-[var(--color-om-icon)]">
                   🕉
                 </p> */}
-                <h1 className="mt-3 font-[var(--font-cormorant),serif] text-3xl font-semibold leading-tight text-[var(--color-temple-name)] sm:text-4xl">
+                <h1 className="mt-3 font-[var(--font-cormorant),serif] text-2xl font-semibold leading-tight text-[var(--color-temple-name)] sm:text-3xl">
                   {pageTitle}
                 </h1>
               </header>
@@ -523,7 +523,7 @@ export default function AartiPujaPage() {
 
           .print-document h1 {
             color: #4a2c1d;
-            font-family: Georgia, serif;
+            font-family: "Playfair Display", Georgia, serif;
             font-size: 34px;
             margin: 0;
             text-align: center;
@@ -554,7 +554,7 @@ export default function AartiPujaPage() {
             </p>
             <h2
               id="aaj-ka-shringar-title"
-              className="mt-4 font-[var(--font-cormorant),serif] text-5xl font-semibold leading-tight text-[var(--color-temple-name)] sm:text-6xl"
+              className="mt-4 font-[var(--font-cormorant),serif] text-4xl font-semibold leading-tight text-[var(--color-temple-name)] sm:text-5xl"
             >
               Lord Bholenath
               <span className="block text-[var(--color-accent-gold)]">
@@ -595,7 +595,7 @@ export default function AartiPujaPage() {
             </p>
             <h2
               id="aarti-panchang-title"
-              className="mt-4 font-[var(--font-cormorant),serif] text-5xl font-semibold leading-tight text-[var(--color-temple-name)] sm:text-6xl"
+              className="mt-4 font-[var(--font-cormorant),serif] text-4xl font-semibold leading-tight text-[var(--color-temple-name)] sm:text-5xl"
             >
               Temple Calendar
             </h2>

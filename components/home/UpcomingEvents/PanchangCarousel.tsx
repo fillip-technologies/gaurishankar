@@ -51,10 +51,10 @@ export function PanchangCarousel({
               <p className="mt-4 text-sm font-semibold uppercase tracking-[0.22em] text-[var(--color-secondary-text)]">
                 {slide.month}
               </p>
-              <p className="mt-1 font-[var(--font-cormorant),serif] text-7xl font-semibold leading-none text-[var(--color-temple-maroon)]">
+              <p className="mt-1 font-[var(--font-cormorant),serif] text-6xl font-semibold leading-none text-[var(--color-temple-maroon)]">
                 {slide.dateNumber}
               </p>
-              <p className="mt-2 font-[var(--font-cormorant),serif] text-2xl font-semibold text-[var(--color-temple-name)]">
+              <p className="mt-2 font-[var(--font-cormorant),serif] text-xl font-semibold text-[var(--color-temple-name)]">
                 {slide.weekday}
               </p>
               <p className="mt-2 text-sm font-semibold text-[var(--color-warm-saffron)]">

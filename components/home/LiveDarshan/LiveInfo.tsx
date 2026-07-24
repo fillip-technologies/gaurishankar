@@ -25,7 +25,7 @@ export function LiveInfo() {
             <h3 className="mt-5 text-sm font-semibold uppercase tracking-[0.18em] text-[var(--color-secondary-text)]">
               {item.title}
             </h3>
-            <p className="mt-2 font-[var(--font-cormorant),serif] text-2xl font-semibold text-[var(--color-temple-name)]">
+            <p className="mt-2 font-[var(--font-cormorant),serif] text-xl font-semibold text-[var(--color-temple-name)]">
               {item.value}
             </p>
             <p className="mt-3 text-sm leading-6 text-[var(--color-secondary-text)]">

@@ -18,7 +18,7 @@ export function HeroContent() {
           {HERO_CONTENT.sanskritTag}
         </motion.p>
         <motion.h1
-          className="mt-6 font-[var(--font-cormorant),var(--font-noto-devanagari),serif] text-6xl font-semibold leading-[0.96] text-[var(--color-white)] drop-shadow-[0_12px_30px_color-mix(in_srgb,var(--color-primary-text)_44%,transparent)] sm:text-7xl md:text-8xl lg:text-9xl"
+          className="mt-6 font-[var(--font-cormorant),var(--font-noto-devanagari),serif] text-5xl font-semibold leading-[0.96] text-[var(--color-white)] drop-shadow-[0_12px_30px_color-mix(in_srgb,var(--color-primary-text)_44%,transparent)] sm:text-6xl md:text-7xl lg:text-8xl"
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.12, ease: "easeOut" }}
